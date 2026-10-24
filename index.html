@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projectile Visualiser</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <section class="panel controls">
+      <label class="field">
+        <span class="field-head">Launch speed <output id="speed-out"></output></span>
+        <input id="speed" type="range" min="5" max="100" step="1" value="40" />
+      </label>
+      <label class="field">
+        <span class="field-head">Angle <output id="angle-out"></output></span>
+        <input id="angle" type="range" min="0" max="85" step="1" value="45" />
+      </label>
+      <label class="field">
+        <span class="field-head">Direction <output id="direction-out"></output></span>
+        <input id="direction" type="range" min="-90" max="90" step="1" value="0" />
+      </label>
+
+      <button id="fire" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" /></svg>
+        Fire
+      </button>
+
+      <label class="check">
+        <input id="multi" type="checkbox" />
+        Show multiple angles
+      </label>
+
+      <fieldset class="views">
+        <legend>View</legend>
+        <label><input type="radio" name="view" value="cannon" checked /><span>Cannon</span></label>
+        <label><input type="radio" name="view" value="overview" /><span>Overview</span></label>
+      </fieldset>
+
+      <dl class="stats">
+        <div><dt>Range</dt><dd id="stat-range"></dd></div>
+        <div><dt>Max height</dt><dd id="stat-height"></dd></div>
+        <div><dt>Flight time</dt><dd id="stat-time"></dd></div>
+      </dl>
+    </section>
+
+    <section id="legend" class="panel legend" hidden>
+      <ul id="legend-list"></ul>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
